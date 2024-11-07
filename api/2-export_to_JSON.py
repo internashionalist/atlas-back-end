@@ -47,10 +47,12 @@ def fetch_employee_progress(employee_id):
         }
         tasks_list.append(task_info)
 
+    json_data = {str(employee_id): tasks_list}
+
     # export data to JSON file
     json_filename = f"{employee_id}.json"
     with open(json_filename, mode="w") as file:
-        json.dump({employee_id: tasks_list}, file)
+        json.dump(json_data, file)
 
 
 if __name__ == "__main__":
