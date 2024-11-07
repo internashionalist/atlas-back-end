@@ -35,7 +35,7 @@ def fetch_employee_progress(employee_id):
     user_data = user_response.json()
 
     # fetch employee name and associated tasks
-    employee_name = user_data.get("name")
+    employee_name = user_data.get("username")
     completed_tasks = [task.get("title") for task in todo_data
                        if task.get("completed")]
     total_tasks = len(todo_data)
