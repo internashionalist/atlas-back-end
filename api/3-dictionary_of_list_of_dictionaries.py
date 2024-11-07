@@ -16,31 +16,31 @@ def fetch_employee_progress():
 
     # urls with data to be fetched
     base_url = "https://jsonplaceholder.typicode.com/"
-    user_url = f"{base_url}users/{employee_id}"
-    todo_url = f"{base_url}todos?userId={employee_id}"
+    users_url = f"{base_url}users"
+    todos_url = f"{base_url}todos"
 
     # fetch to-do list data
-    todo_response = requests.get(todo_url)
-    if todo_response.status_code != 200:
-        print(f"To-Do List Fetch Fail: {employee_id}")
+    todos_response = requests.get(todos_url)
+    if todos_response.status_code != 200:
+        print(f"To-Do List Fetch Fail")
         return
-    todo_data = todo_response.json()
+    todos_data = todos_response.json()
 
     # fetch user data
-    user_response = requests.get(user_url)
-    if user_response.status_code != 200:
-        print(f"Name Fetch Fail: {employee_id}")
+    users_response = requests.get(users_url)
+    if users_response.status_code != 200:
+        print(f"Name Fetch Fail")
         return
-    user_data = user_response.json()
+    users_data = users_response.json()
 
     # create dictionary of all employees' tasks by ID
     tasks_list = []
 
     # map IDs to usernames for reference
-    user_map = {user["id"]: user["username"] for user in user_data}
+    user_map = {user["id"]: user["username"] for user in users_data}
 
     # fetch task data for each employee
-    for task in todo_data:
+    for task in todos_data:
         user_id = task.get("userId")
         task_info = {
             "username": user_map.get(user_id),
