@@ -47,7 +47,7 @@ def fetch_employee_progress(employee_id):
         print(f"\t {task_name}")
 
     # export data to file in CSV format
-    csv_filename = f"{employee_name}.csv"
+    csv_filename = f"{employee_id}.csv"
     with open(csv_filename, mode="w", newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in todo_data:
