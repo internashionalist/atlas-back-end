@@ -57,9 +57,6 @@ def fetch_employee_progress():
     with open(json_filename, mode="w") as file:
         json.dump(tasks_by_user, file)
 
-    # nice little message on completion
-    print(f"All employees' tasks have been exported to {json_filename}.")
-
 
 if __name__ == "__main__":
     fetch_employee_progress()
