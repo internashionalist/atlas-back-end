@@ -36,7 +36,7 @@ def fetch_employee_progress(employee_id):
 
     # fetch employee name
     employee_name = user_data.get("name")
-    
+
     # format data to be exported to JSON
     tasks_list = []
     for task in todo_data:
