@@ -55,7 +55,7 @@ def fetch_employee_progress():
     # export data to JSON file
     json_filename = "todo_all_employees.json"
     with open(json_filename, mode="w") as file:
-        json.dump(tasks_list, file)
+        json.dump(tasks_by_user, file)
 
     # nice little message on completion
     print(f"All employees' tasks have been exported to {json_filename}.")
