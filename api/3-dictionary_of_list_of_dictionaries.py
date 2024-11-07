@@ -34,7 +34,7 @@ def fetch_employee_progress():
     users_data = users_response.json()
 
     # create dictionary of all employees' tasks by ID
-    tasks_list = []
+    tasks_by_user = {}
 
     # map IDs to usernames for reference
     user_map = {user["id"]: user["username"] for user in users_data}
@@ -48,9 +48,9 @@ def fetch_employee_progress():
             "completed": task.get("completed")
         }
 
-        if user_id not in tasks_list:
-            tasks_list[user_id] = []
-        tasks_list[user_id].append(task_info)
+        if user_id not in tasks_by_user:
+            tasks_by_user[user_id] = []
+        tasks_by_user[user_id].append(task_info)
 
     # export data to JSON file
     json_filename = "todo_all_employees.json"
