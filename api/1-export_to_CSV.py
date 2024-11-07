@@ -2,8 +2,8 @@
 """
 This module fetches data from an API and exports it to a CSV file.
 """
-import requests
 import csv
+import requests
 import sys
 
 
