@@ -46,7 +46,7 @@ def fetch_employee_progress(employee_id):
     for task_name in completed_tasks:
         print(f"\t {task_name}")
 
-    # export data file in CSV format
+    # export data to file in CSV format
     csv_filename = f"{employee_name}.csv"
     with open(csv_filename, mode="w", newline=" ") as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
