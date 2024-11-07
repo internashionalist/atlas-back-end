@@ -53,7 +53,7 @@ def fetch_employee_progress(employee_id):
         for task in todo_data:
             writer.writerow([employee_id, employee_name,
                              task.get["completed"], task.get["title"]])
-    
+
     print(f"Data for employee {employee_name} "
           f"has been exported to {csv_filename}.")
 
