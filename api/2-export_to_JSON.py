@@ -52,7 +52,8 @@ def fetch_employee_progress(employee_id):
     # export data to JSON file
     json_filename = f"{employee_id}.json"
     with open(json_filename, mode="w") as file:
-        json.dump(json_data, file)
+        json.dump(json_data, file, separators=(",", ":"))
+    return json_data
 
 
 if __name__ == "__main__":
